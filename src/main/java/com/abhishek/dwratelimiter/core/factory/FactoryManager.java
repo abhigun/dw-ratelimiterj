@@ -6,14 +6,18 @@ import com.abhishek.dwratelimiter.core.factory.helpers.annotation.RateLimiter;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Singleton;
 import io.dropwizard.lifecycle.Managed;
+import lombok.extern.slf4j.Slf4j;
 import org.reflections.Reflections;
 
 import java.util.Map;
 import java.util.Set;
 
+@Singleton
+@Slf4j
 public class FactoryManager  {
-    private static final String HANDLER_PACKAGE = "com.abhishek.dwratelimiter.storages";
+    private static final String HANDLER_PACKAGE = "com.abhishek.dwratelimiter.core.storages";
     private Map<String, AbstractBaseFactory> factoryInstances = Maps.newHashMap();
 
     @Inject

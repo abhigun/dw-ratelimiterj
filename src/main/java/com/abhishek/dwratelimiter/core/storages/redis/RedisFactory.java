@@ -4,9 +4,12 @@ import com.abhishek.dwratelimiter.core.factory.helpers.AbstractBaseFactory;
 import com.abhishek.dwratelimiter.core.factory.helpers.StorageType;
 import com.abhishek.dwratelimiter.core.factory.helpers.annotation.RateLimiter;
 import com.abhishek.dwratelimiter.core.storages.redis.limiter.RedisRateLimiter;
+import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+
+@Singleton
 @Slf4j
 @RateLimiter(storageType = StorageType.REDIS)
 public class RedisFactory extends AbstractBaseFactory<RedisRateLimiter> {
