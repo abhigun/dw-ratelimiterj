@@ -1,6 +1,6 @@
 package com.abhishek.dwratelimiter.core.storages.redis.limiter;
 
-import com.abhishek.dwratelimiter.core.rateLimiters.RateLimiterMethods;
+import com.abhishek.dwratelimiter.core.RateLimiterMethods;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 

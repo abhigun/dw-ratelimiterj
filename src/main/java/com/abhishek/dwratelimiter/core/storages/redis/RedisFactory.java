@@ -13,21 +13,18 @@ import java.io.IOException;
 @Slf4j
 @RateLimiter(storageType = StorageType.REDIS)
 public class RedisFactory extends AbstractBaseFactory<RedisRateLimiter> {
+    public RedisFactory(){
+        log.info("Reached RedisFactory Class");
+    }
     @Override
     protected RedisRateLimiter createInstance() {
         log.info("Redis Create Instance");
         return null;
     }
-
     @Override
-    protected RedisRateLimiter lookupInstance() {
-        log.info("Redis Look up ");
-        return null;
-    }
-
-    @Override
-    public void getInstance() {
+    public RedisRateLimiter getInstance() {
         log.info("Redis Get");
+        return null;
     }
 
     @Override

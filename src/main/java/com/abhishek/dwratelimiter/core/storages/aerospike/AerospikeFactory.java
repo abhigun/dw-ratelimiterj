@@ -17,21 +17,19 @@ public class AerospikeFactory extends AbstractBaseFactory<AerospikeRateLimiter> 
     public AerospikeFactory(){
         log.info("Reached the Aerospike Class");
     }
+
     @Override
     protected AerospikeRateLimiter createInstance() {
         log.info("Came to Aerospike Create Instance Class");
-        return null;
+        return new AerospikeRateLimiter();
     }
 
-    @Override
-    protected AerospikeRateLimiter lookupInstance() {
-        log.info("Came to Aerospike lookupInstance class");
-        return null;
-    }
 
     @Override
-    public void getInstance() {
+    public AerospikeRateLimiter getInstance() {
         log.info("Came to Aerospike getInstance Class");
+        return lookupInstance();
+
     }
 
     @Override
