@@ -1,13 +1,12 @@
 package com.abhishek.dwratelimiter.core.factory;
 
 import com.abhishek.dwratelimiter.core.factory.helpers.AbstractBaseFactory;
-import com.abhishek.dwratelimiter.core.factory.helpers.StorageType;
+import com.abhishek.dwratelimiter.core.StorageType;
 import com.abhishek.dwratelimiter.core.factory.helpers.annotation.RateLimiter;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Singleton;
-import io.dropwizard.lifecycle.Managed;
 import lombok.extern.slf4j.Slf4j;
 import org.reflections.Reflections;
 

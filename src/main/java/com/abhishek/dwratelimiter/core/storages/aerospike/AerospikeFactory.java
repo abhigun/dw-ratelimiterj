@@ -1,7 +1,7 @@
 package com.abhishek.dwratelimiter.core.storages.aerospike;
 
 import com.abhishek.dwratelimiter.core.factory.helpers.AbstractBaseFactory;
-import com.abhishek.dwratelimiter.core.factory.helpers.StorageType;
+import com.abhishek.dwratelimiter.core.StorageType;
 import com.abhishek.dwratelimiter.core.factory.helpers.annotation.RateLimiter;
 import com.abhishek.dwratelimiter.core.storages.aerospike.limiter.AerospikeRateLimiter;
 import com.google.inject.Singleton;

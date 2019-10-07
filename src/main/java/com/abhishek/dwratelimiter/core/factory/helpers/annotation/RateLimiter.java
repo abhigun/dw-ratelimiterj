@@ -1,6 +1,6 @@
 package com.abhishek.dwratelimiter.core.factory.helpers.annotation;
 
-import com.abhishek.dwratelimiter.core.factory.helpers.StorageType;
+import com.abhishek.dwratelimiter.core.StorageType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

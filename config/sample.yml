@@ -14,4 +14,20 @@ server:
         timeZone: IST
 
 ratelimiterConfig:
-  dataBase: Aerospike
+  storageType: AEROSPIKE
+  aerospikeConfig:
+    hosts:
+      - host: stg-aerospike102.phonepe.nm2
+        port: 3000
+    namespace: mercury
+    maxConnectionsPerNode: 10
+    timeout: 1000
+    retries: 3
+    sleepBetweenRetries: 5
+    maxSocketIdle: 4140
+    threadPoolSize: 512
+  redisConfig:
+    hosts:
+      - host: stg-aerospike102.phonepe.nm2
+        port: 3000
+    namespace: redis

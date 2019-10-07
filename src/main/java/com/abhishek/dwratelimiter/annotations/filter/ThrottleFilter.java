@@ -2,7 +2,7 @@ package com.abhishek.dwratelimiter.annotations.filter;
 
 import com.abhishek.dwratelimiter.annotations.Throttled;
 import com.abhishek.dwratelimiter.core.factory.FactoryManager;
-import com.abhishek.dwratelimiter.core.factory.helpers.StorageType;
+import com.abhishek.dwratelimiter.core.StorageType;
 import com.abhishek.dwratelimiter.core.RateLimiterMethods;
 import lombok.extern.slf4j.Slf4j;
 import org.glassfish.jersey.server.model.AnnotatedMethod;

@@ -5,7 +5,7 @@ import com.abhishek.dwratelimiter.annotations.Throttled;
 import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
 import com.abhishek.dwratelimiter.core.factory.FactoryManager;
 import com.abhishek.dwratelimiter.core.factory.helpers.AbstractBaseFactory;
-import com.abhishek.dwratelimiter.core.factory.helpers.StorageType;
+import com.abhishek.dwratelimiter.core.StorageType;
 import com.abhishek.dwratelimiter.core.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.storages.aerospike.AerospikeFactory;
 import com.google.inject.Inject;
@@ -43,7 +43,7 @@ public class Sample {
     @Path("name")
     @GET
     public String getName(@QueryParam("name") final String name ){
-        return appConfig.getRatelimiterConfig().getDataBase();
+        return appConfig.getRatelimiterConfig().getStorageType().name();
     }
 
 

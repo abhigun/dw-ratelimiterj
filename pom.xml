@@ -43,6 +43,23 @@
             <artifactId>dropwizard-guicey</artifactId>
             <version>${guice.version}</version>
         </dependency>
+        <!--        Aerospike Client -->
+        <!-- https://mvnrepository.com/artifact/com.aerospike/aerospike-client -->
+        <dependency>
+            <groupId>com.aerospike</groupId>
+            <artifactId>aerospike-client</artifactId>
+            <version>4.1.11</version>
+        </dependency>
+
+        <!-- Redis Client        -->
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
