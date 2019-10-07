@@ -30,11 +30,9 @@ public class Sample {
 
     @GET
     @Throttled(param = "namespace",throttleRule = {@ThrottleRule(duration = 10,precision = 10,limit = 3),@ThrottleRule(duration = 5,precision = 5,limit = 2)})
-    public String getFactory(@NotNull @QueryParam("factory") final String namespace){
+    public String getFactory(@NotNull @QueryParam("namespace") final String namespace){
 
        abstractBaseFactory =  (AerospikeFactory)factoryManager.getFactoryInstance(StorageType.AEROSPIKE);
-       RateLimiterMethods rateLimiterMethods = (RateLimiterMethods) abstractBaseFactory.getInstance();
-       rateLimiterMethods.isOverLimit("getting request",1);
 //       abstractBaseFactory.lookupInstance();
 
        return StorageType.AEROSPIKE.name();

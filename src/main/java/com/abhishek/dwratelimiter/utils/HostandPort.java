@@ -20,7 +20,7 @@ public class HostandPort {
     @NotEmpty @NotNull
     private String host;
     @Min(1)
-    private String port;
+    private int port;
 
     private String tlsName;
 

@@ -3,21 +3,26 @@ package com.abhishek.dwratelimiter.core.storages.aerospike;
 import com.abhishek.dwratelimiter.AppConfig;
 import com.abhishek.dwratelimiter.core.config.AerospikeConfig;
 import com.aerospike.client.AerospikeClient;
+import com.aerospike.client.Host;
 import com.aerospike.client.policy.*;
 import com.google.inject.Inject;
 import io.dropwizard.lifecycle.Managed;
+import lombok.Getter;
 
 public class AerospikeConnection implements Managed {
 
     private static AerospikeConfig aerospikeConfig;
+    @Getter
     private static AerospikeClient aerospikeClient;
 
     @Inject
     public AerospikeConnection(AppConfig appConfig){
-        this.aerospikeConfig = appConfig.getRatelimiterConfig().getAerospikeConfig();
+        aerospikeConfig = appConfig.getRatelimiterConfig().getAerospikeConfig();
     }
     @Override
     public void start() throws Exception {
+
+
         Policy readPolicy = new Policy();
         readPolicy.maxRetries = aerospikeConfig.getRetries();
         readPolicy.consistencyLevel = ConsistencyLevel.CONSISTENCY_ONE;
@@ -45,10 +50,24 @@ public class AerospikeConnection implements Managed {
 //        clientPolicy.tlsPolicy = new TlsPolicy();
 //        clientPolicy.user = aerospikeConfig.getUser();
 //        clientPolicy.password = aerospikeConfig.getPassword();
+
+        aerospikeClient = new AerospikeClient
+         (
+                clientPolicy,aerospikeConfig.getHosts().stream().map
+                (
+                        hostandPort -> new Host
+                        (
+                            hostandPort.getHost(),hostandPort.getPort()
+                        )
+                ).toArray(
+                            Host[]::new
+                         )
+        );
+
     }
 
     @Override
     public void stop() throws Exception {
-
+        aerospikeClient.close();
     }
 }
