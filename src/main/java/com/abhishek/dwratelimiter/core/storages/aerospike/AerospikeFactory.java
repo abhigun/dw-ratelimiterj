@@ -8,7 +8,6 @@ import com.abhishek.dwratelimiter.core.storages.aerospike.limiter.AerospikeRateL
 import com.aerospike.client.AerospikeClient;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import io.dropwizard.lifecycle.Managed;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -20,8 +19,6 @@ import java.util.Set;
 public class AerospikeFactory extends AbstractBaseFactory<AerospikeRateLimiter> {
 
     private final AerospikeConnection aerospikeConnection;
-
-
     @Inject
     public AerospikeFactory(AerospikeConnection aerospikeConnection){
         this.aerospikeConnection = aerospikeConnection;
@@ -31,8 +28,8 @@ public class AerospikeFactory extends AbstractBaseFactory<AerospikeRateLimiter> 
 
     @Override
     protected AerospikeRateLimiter createInstance(Set<Rule> rules) {
-        log.info("Came to Aerospike Create Instance Class");
-        return new AerospikeRateLimiter(aerospikeConnection,rules);
+        log.info(String.valueOf(aerospikeConnection.client().isConnected()));
+        return new AerospikeRateLimiter(aerospikeConnection.client(),rules);
     }
 
 

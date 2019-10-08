@@ -7,12 +7,10 @@ import com.aerospike.client.Host;
 import com.aerospike.client.policy.*;
 import com.google.inject.Inject;
 import io.dropwizard.lifecycle.Managed;
-import lombok.Getter;
 
 public class AerospikeConnection implements Managed {
 
-    private static AerospikeConfig aerospikeConfig;
-    @Getter
+    private final AerospikeConfig aerospikeConfig;
     private static AerospikeClient aerospikeClient;
 
     @Inject
@@ -69,5 +67,9 @@ public class AerospikeConnection implements Managed {
     @Override
     public void stop() throws Exception {
         aerospikeClient.close();
+    }
+
+    public AerospikeClient client(){
+        return aerospikeClient;
     }
 }
