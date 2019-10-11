@@ -1,7 +1,6 @@
 package com.abhishek.dwratelimiter.core.factory.helpers;
 
 import com.abhishek.dwratelimiter.core.Rule;
-import com.abhishek.dwratelimiter.core.factory.BaseFactory;
 
 import java.io.IOException;
 import java.util.Set;
