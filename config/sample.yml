@@ -13,23 +13,30 @@ server:
       - type: console
         timeZone: IST
 
-ratelimiterConfig:
-  storageType: AEROSPIKE
-  aerospikeConfig:
+storageConfigs:
+  AEROSPIKE:
+    type: AEROSPIKE
     hosts:
       - host: 127.0.0.1
         port: 3000
-    namespace: mercury
+    namespace: docstore
     maxConnectionsPerNode: 10
     timeout: 1000
     retries: 3
     sleepBetweenRetries: 5
     maxSocketIdle: 4140
     threadPoolSize: 512
-  redisConfig:
-    hosts:
-      - host: stg-aerospike102.phonepe.nm2
-        port: 3000
-    namespace: redis
+  REDIS:
+    type: REDIS
+      hosts:
+          - host: 127.0.0.1
+            port: 3000
+      namespace: docstore
+      maxConnectionsPerNode: 10
+      timeout: 1000
+      retries: 3
+      sleepBetweenRetries: 5
+      maxSocketIdle: 4140
+      threadPoolSize: 512
 
 

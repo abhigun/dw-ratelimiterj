@@ -4,9 +4,8 @@ import com.abhishek.dwratelimiter.annotations.Throttled;
 import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
 import com.abhishek.dwratelimiter.core.Rule;
 import com.abhishek.dwratelimiter.core.factory.FactoryManager;
-import com.abhishek.dwratelimiter.core.StorageType;
+import com.abhishek.dwratelimiter.utils.StorageType;
 import com.abhishek.dwratelimiter.core.RateLimiterMethods;
-import com.abhishek.dwratelimiter.utils.SerDe;
 import lombok.extern.slf4j.Slf4j;
 import org.glassfish.jersey.server.model.AnnotatedMethod;
 

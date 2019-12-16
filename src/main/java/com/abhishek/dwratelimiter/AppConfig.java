@@ -1,12 +1,15 @@
 package com.abhishek.dwratelimiter;
 
 import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;
+import com.abhishek.dwratelimiter.core.config.storage.StorageConfig;
+import com.abhishek.dwratelimiter.utils.StorageType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.dropwizard.Configuration;
 import lombok.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +22,6 @@ public class AppConfig extends Configuration {
 
     @NotNull
     @Valid
-    private RatelimiterConfig ratelimiterConfig;
+    private Map<StorageType, StorageConfig> storageConfigs;
 
 }

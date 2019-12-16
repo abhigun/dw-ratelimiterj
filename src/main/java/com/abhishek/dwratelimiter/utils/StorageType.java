@@ -1,4 +1,4 @@
-package com.abhishek.dwratelimiter.core;
+package com.abhishek.dwratelimiter.utils;
 
 public enum StorageType {
     REDIS,AEROSPIKE,INMEMORY;

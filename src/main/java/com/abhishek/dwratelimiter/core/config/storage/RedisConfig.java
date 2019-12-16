@@ -1,20 +1,22 @@
-package com.abhishek.dwratelimiter.core.config;
+package com.abhishek.dwratelimiter.core.config.storage;
+
 
 import com.abhishek.dwratelimiter.utils.HostandPort;
+import com.abhishek.dwratelimiter.utils.StorageType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
-/* Parent Config to be extended by the child configs */
-public class StorageConfig {
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+public class RedisConfig extends StorageConfig{
+
     @NotNull
     private List<HostandPort> hosts;
 
@@ -30,9 +32,9 @@ public class StorageConfig {
 
     private int retries;
 
-    private int sleepBetweenRetries;
+    public RedisConfig(){
+        super(StorageType.REDIS);
+    }
 
-    private int threadPoolSize;
 
-    private int maxSocketIdle;
 }

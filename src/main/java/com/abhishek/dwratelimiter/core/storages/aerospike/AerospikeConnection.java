@@ -1,7 +1,9 @@
 package com.abhishek.dwratelimiter.core.storages.aerospike;
 
 import com.abhishek.dwratelimiter.AppConfig;
-import com.abhishek.dwratelimiter.core.config.AerospikeConfig;
+import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;
+import com.abhishek.dwratelimiter.core.config.storage.AerospikeConfig;
+import com.abhishek.dwratelimiter.utils.StorageType;
 import com.aerospike.client.AerospikeClient;
 import com.aerospike.client.Host;
 import com.aerospike.client.policy.*;
@@ -15,8 +17,13 @@ public class AerospikeConnection implements Managed {
 
     @Inject
     public AerospikeConnection(AppConfig appConfig){
-        aerospikeConfig = appConfig.getRatelimiterConfig().getAerospikeConfig();
+        aerospikeConfig = (AerospikeConfig) appConfig.getStorageConfigs().get(StorageType.AEROSPIKE);
     }
+
+    public AerospikeConnection(RatelimiterConfig ratelimiterConfig){
+        aerospikeConfig = (AerospikeConfig) ratelimiterConfig.getStorageConfig();
+    }
+
     @Override
     public void start() throws Exception {
 

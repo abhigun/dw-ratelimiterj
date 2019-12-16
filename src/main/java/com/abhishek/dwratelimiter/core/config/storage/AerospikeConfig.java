@@ -1,21 +1,20 @@
-package com.abhishek.dwratelimiter.core.config;
+package com.abhishek.dwratelimiter.core.config.storage;
 
 import com.abhishek.dwratelimiter.utils.HostandPort;
+import com.abhishek.dwratelimiter.utils.StorageType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AerospikeConfig {
+@ToString(callSuper = true)
+public class AerospikeConfig extends StorageConfig {
 
     @NotNull
     private List<HostandPort> hosts;
@@ -37,4 +36,10 @@ public class AerospikeConfig {
     private int threadPoolSize;
 
     private int maxSocketIdle;
+
+    public AerospikeConfig(){
+        super(StorageType.AEROSPIKE);
+    }
+
+
 }

@@ -1,7 +1,7 @@
 package com.abhishek.dwratelimiter.core.factory;
 
 import com.abhishek.dwratelimiter.core.factory.helpers.AbstractBaseFactory;
-import com.abhishek.dwratelimiter.core.StorageType;
+import com.abhishek.dwratelimiter.utils.StorageType;
 import com.abhishek.dwratelimiter.core.factory.helpers.annotation.RateLimiter;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
