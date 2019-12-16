@@ -13,6 +13,8 @@ server:
       - type: console
         timeZone: IST
 
+storageEnv: AEROSPIKE
+
 storageConfigs:
   AEROSPIKE:
     type: AEROSPIKE
@@ -28,15 +30,15 @@ storageConfigs:
     threadPoolSize: 512
   REDIS:
     type: REDIS
-      hosts:
-          - host: 127.0.0.1
-            port: 3000
-      namespace: docstore
-      maxConnectionsPerNode: 10
-      timeout: 1000
-      retries: 3
-      sleepBetweenRetries: 5
-      maxSocketIdle: 4140
-      threadPoolSize: 512
+    hosts:
+      - host: 127.0.0.1
+        port: 3000
+    namespace: docstore
+    maxConnectionsPerNode: 10
+    timeout: 1000
+    retries: 3
+    sleepBetweenRetries: 5
+    maxSocketIdle: 4140
+    threadPoolSize: 512
 
 

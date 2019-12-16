@@ -24,4 +24,7 @@ public class AppConfig extends Configuration {
     @Valid
     private Map<StorageType, StorageConfig> storageConfigs;
 
+    @NotNull
+    private StorageType storageEnv;
+
 }
