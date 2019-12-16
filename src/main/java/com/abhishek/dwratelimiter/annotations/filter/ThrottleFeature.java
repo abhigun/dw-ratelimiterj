@@ -2,7 +2,7 @@ package com.abhishek.dwratelimiter.annotations.filter;
 
 import com.abhishek.dwratelimiter.annotations.Throttled;
 
-import com.abhishek.dwratelimiter.core.factory.FactoryManager;
+import com.abhishek.dwratelimiter.core.factory.StorageFactoryManager;
 import com.google.inject.Inject;
 import org.glassfish.jersey.server.model.AnnotatedMethod;
 
@@ -13,10 +13,10 @@ import javax.ws.rs.ext.Provider;
 
 @Provider
 public class ThrottleFeature implements DynamicFeature {
-    private final FactoryManager factoryManager;
+    private final StorageFactoryManager storageFactoryManager;
     @Inject
-    public ThrottleFeature(FactoryManager factoryManager){
-        this.factoryManager = factoryManager;
+    public ThrottleFeature(StorageFactoryManager storageFactoryManager){
+        this.storageFactoryManager = storageFactoryManager;
     }
     @Override
     public void configure(ResourceInfo resourceInfo, FeatureContext featureContext) {
@@ -24,7 +24,7 @@ public class ThrottleFeature implements DynamicFeature {
         Throttled throttled = annotatedMethod.getAnnotation(Throttled.class);
 
         if(throttled != null){
-            featureContext.register(new ThrottleFilter(factoryManager,resourceInfo));
+            featureContext.register(new ThrottleFilter(storageFactoryManager,resourceInfo));
         }
 
     }

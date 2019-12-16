@@ -1,15 +1,12 @@
 package com.abhishek.dwratelimiter;
 
 
-import com.abhishek.dwratelimiter.core.factory.FactoryManager;
 import com.abhishek.dwratelimiter.utils.SerDe;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.inject.Stage;
 import io.dropwizard.Application;
-import io.dropwizard.Configuration;
-import io.dropwizard.lifecycle.Managed;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import lombok.extern.slf4j.Slf4j;

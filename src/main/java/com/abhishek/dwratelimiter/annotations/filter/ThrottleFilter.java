@@ -3,7 +3,7 @@ package com.abhishek.dwratelimiter.annotations.filter;
 import com.abhishek.dwratelimiter.annotations.Throttled;
 import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
 import com.abhishek.dwratelimiter.core.Rule;
-import com.abhishek.dwratelimiter.core.factory.FactoryManager;
+import com.abhishek.dwratelimiter.core.factory.StorageFactoryManager;
 import com.abhishek.dwratelimiter.utils.StorageType;
 import com.abhishek.dwratelimiter.core.RateLimiterMethods;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class ThrottleFilter implements ContainerRequestFilter {
-    private final FactoryManager factoryManager;
+    private final StorageFactoryManager storageFactoryManager;
 
     @Context
     private HttpServletRequest request;
@@ -31,13 +31,13 @@ public class ThrottleFilter implements ContainerRequestFilter {
     private SecurityContext securityContext;
 
 
-    public ThrottleFilter(FactoryManager factoryManager, @Context ResourceInfo resource){
-        this.factoryManager = factoryManager;
+    public ThrottleFilter(StorageFactoryManager storageFactoryManager, @Context ResourceInfo resource){
+        this.storageFactoryManager = storageFactoryManager;
         this.resource = resource;
     }
 
     private RateLimiterMethods getRateLimiter(Set<Rule> rules){
-        return (RateLimiterMethods) factoryManager.getFactoryInstance(StorageType.AEROSPIKE).getInstance(rules);
+        return (RateLimiterMethods) storageFactoryManager.getFactoryInstance(StorageType.AEROSPIKE).getInstance(rules);
     }
 
     @Override
