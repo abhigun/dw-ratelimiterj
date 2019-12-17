@@ -13,4 +13,5 @@ public @interface ThrottleRule {
     int duration();
     int precision();
     int limit();
+    int weight() default 1;
 }

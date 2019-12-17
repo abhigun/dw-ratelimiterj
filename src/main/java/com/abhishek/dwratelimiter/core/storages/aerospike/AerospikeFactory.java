@@ -1,6 +1,6 @@
 package com.abhishek.dwratelimiter.core.storages.aerospike;
 
-import com.abhishek.dwratelimiter.core.Rule;
+import com.abhishek.dwratelimiter.core.rules.Rule;
 import com.abhishek.dwratelimiter.core.factory.StorageFactory;
 import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeRateLimiter;
 import com.google.inject.Inject;

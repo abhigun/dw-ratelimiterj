@@ -1,4 +1,4 @@
-package com.abhishek.dwratelimiter.core;
+package com.abhishek.dwratelimiter.core.rules;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -17,4 +17,5 @@ public class Rule {
     private int duration;
     private int precision;
     private int limit;
+    private int weight =1;
 }

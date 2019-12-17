@@ -1,6 +1,6 @@
 package com.abhishek.dwratelimiter.core.storages.redis;
 
-import com.abhishek.dwratelimiter.core.Rule;
+import com.abhishek.dwratelimiter.core.rules.Rule;
 import com.abhishek.dwratelimiter.core.factory.StorageFactory;
 import com.abhishek.dwratelimiter.core.limiter.redis.RedisRateLimiter;
 import com.google.inject.Singleton;

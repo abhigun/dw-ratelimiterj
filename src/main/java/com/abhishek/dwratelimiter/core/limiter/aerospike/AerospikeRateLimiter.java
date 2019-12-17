@@ -1,7 +1,7 @@
 package com.abhishek.dwratelimiter.core.limiter.aerospike;
 
 import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
-import com.abhishek.dwratelimiter.core.Rule;
+import com.abhishek.dwratelimiter.core.rules.Rule;
 import com.aerospike.client.AerospikeClient;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;

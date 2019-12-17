@@ -1,4 +1,4 @@
-package com.abhishek.dwratelimiter.core;
+package com.abhishek.dwratelimiter.core.rules;
 
 public class WindowKeys {
     private long buckets;
