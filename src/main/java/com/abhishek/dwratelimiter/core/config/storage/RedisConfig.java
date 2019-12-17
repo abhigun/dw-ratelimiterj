@@ -32,6 +32,8 @@ public class RedisConfig extends StorageConfig{
 
     private int retries;
 
+    private String applicationName;
+
     public RedisConfig(){
         super(StorageType.REDIS);
     }

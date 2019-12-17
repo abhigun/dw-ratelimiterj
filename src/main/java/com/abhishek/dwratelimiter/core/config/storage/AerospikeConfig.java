@@ -37,6 +37,9 @@ public class AerospikeConfig extends StorageConfig {
 
     private int maxSocketIdle;
 
+    private String applicationName;
+
+
     public AerospikeConfig(){
         super(StorageType.AEROSPIKE);
     }
