@@ -2,7 +2,7 @@ package com.abhishek.dwratelimiter.core.storages.aerospike;
 
 import com.abhishek.dwratelimiter.core.Rule;
 import com.abhishek.dwratelimiter.core.factory.StorageFactory;
-import com.abhishek.dwratelimiter.core.storages.aerospike.limiter.AerospikeRateLimiter;
+import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeRateLimiter;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;

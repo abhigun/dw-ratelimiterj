@@ -1,6 +1,6 @@
 package com.abhishek.dwratelimiter.core.factory;
 
-import com.abhishek.dwratelimiter.core.RateLimiterMethods;
+import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.Rule;
 
 import java.io.Closeable;
