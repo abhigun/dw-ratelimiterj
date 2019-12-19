@@ -1,7 +1,7 @@
 package com.abhishek.dwratelimiter.annotations;
 
 import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
-import com.abhishek.dwratelimiter.core.limiter.LimiterType;
+import com.abhishek.dwratelimiter.core.visitor.LimiterType;
 
 import javax.ws.rs.NameBinding;
 import java.lang.annotation.ElementType;

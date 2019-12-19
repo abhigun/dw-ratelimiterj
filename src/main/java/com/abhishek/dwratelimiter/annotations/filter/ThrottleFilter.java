@@ -7,6 +7,7 @@ import com.abhishek.dwratelimiter.core.rules.Rule;
 import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;
 import com.abhishek.dwratelimiter.core.factory.StorageFactoryManager;
 import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
+import com.abhishek.dwratelimiter.core.visitor.LimiterType;
 import lombok.extern.slf4j.Slf4j;
 import org.glassfish.jersey.server.model.AnnotatedMethod;
 
@@ -39,7 +40,7 @@ public class ThrottleFilter implements ContainerRequestFilter {
     }
 
     private RateLimiterMethods getRateLimiter(Set<Rule> rules){
-        return storageFactoryManager.getFactoryInstance(ratelimiterConfig.getStorageConfig().getType()).getInstance(rules);
+        return storageFactoryManager.getFactoryInstance(ratelimiterConfig.getStorageConfig().getType()).getInstance(rules, LimiterType.FIXED);
     }
 
     @Override
