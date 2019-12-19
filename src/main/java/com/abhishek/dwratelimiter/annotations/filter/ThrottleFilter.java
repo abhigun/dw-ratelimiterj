@@ -2,6 +2,7 @@ package com.abhishek.dwratelimiter.annotations.filter;
 
 import com.abhishek.dwratelimiter.annotations.Throttled;
 import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
+import com.abhishek.dwratelimiter.core.limiter.visitor.impl.RateLimitingVisitorImpl;
 import com.abhishek.dwratelimiter.core.rules.Rule;
 import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;
 import com.abhishek.dwratelimiter.core.factory.StorageFactoryManager;
@@ -49,7 +50,7 @@ public class ThrottleFilter implements ContainerRequestFilter {
         Set<Rule> rules = Arrays.stream(throttled.throttleRule()).map(this::converttoRule).collect(Collectors.toSet());
         log.info(throttled.toString());
         String key = resource.getResourceMethod().getName() + "_"+containerRequestContext.getUriInfo().getQueryParameters().get(throttled.param()).get(0);
-        getRateLimiter(rules).isOverLimit(key,1);
+        getRateLimiter(rules).isOverLimit(key,1,new RateLimitingVisitorImpl());
         log.info(resource.toString());
     }
     private Rule converttoRule(ThrottleRule throttleRule){
