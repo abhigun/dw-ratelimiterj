@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Set;
 
 
-@Singleton
 @Slf4j
 public class AerospikeSlidingWindowRateLimiter implements RateLimiterMethods {
     private final AerospikeClient aerospikeClient;

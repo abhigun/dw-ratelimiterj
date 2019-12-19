@@ -5,7 +5,6 @@ import com.abhishek.dwratelimiter.core.limiter.visitor.RateLimitingVistor;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-@Singleton
 @Slf4j
 public class RedisSlidingWindowRateLimiter implements RateLimiterMethods {
     public RedisSlidingWindowRateLimiter(){
