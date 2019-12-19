@@ -5,8 +5,7 @@ import com.abhishek.dwratelimiter.annotations.Throttled;
 import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
 import com.abhishek.dwratelimiter.core.factory.StorageFactory;
 import com.abhishek.dwratelimiter.core.factory.StorageFactoryManager;
-import com.abhishek.dwratelimiter.core.limiter.LimiterEnum;
-import com.abhishek.dwratelimiter.core.storages.aerospike.AerospikeFactory;
+import com.abhishek.dwratelimiter.core.limiter.LimiterType;
 import com.abhishek.dwratelimiter.utils.StorageType;
 import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +27,7 @@ public class Sample {
     }
 
     @GET
-    @Throttled(param = "namespace",throttleRule = {@ThrottleRule(duration = 10,precision = 10,limit = 3),@ThrottleRule(duration = 5,precision = 5,limit = 2)}, type = LimiterEnum.SLIDING)
+    @Throttled(param = "namespace",throttleRule = {@ThrottleRule(duration = 10,precision = 10,limit = 3),@ThrottleRule(duration = 5,precision = 5,limit = 2)}, type = LimiterType.SLIDING)
     public String getFactory(@NotNull @QueryParam("namespace") final String namespace){
         StorageFactory storageFactory = storageFactoryManager.getFactoryInstance(StorageType.AEROSPIKE);
 //       abstractBaseFactory =  (AerospikeFactory)factoryManager.getFactoryInstance(StorageType.AEROSPIKE);

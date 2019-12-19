@@ -1,7 +1,7 @@
 package com.abhishek.dwratelimiter.annotations;
 
 import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
-import com.abhishek.dwratelimiter.core.limiter.LimiterEnum;
+import com.abhishek.dwratelimiter.core.limiter.LimiterType;
 
 import javax.ws.rs.NameBinding;
 import java.lang.annotation.ElementType;
@@ -15,5 +15,5 @@ import java.lang.annotation.Target;
 public @interface Throttled {
     String param();
     ThrottleRule[] throttleRule();
-    LimiterEnum type() default LimiterEnum.SLIDING;
+    LimiterType type() default LimiterType.SLIDING;
 }
