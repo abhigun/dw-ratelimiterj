@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Singleton
 @Slf4j
-public class RedisRateLimiter implements RateLimiterMethods {
-    public RedisRateLimiter(){
+public class RedisSlidingWindowRateLimiter implements RateLimiterMethods {
+    public RedisSlidingWindowRateLimiter(){
         log.info("Redis Rate Limiter Class");
     }
     @Override

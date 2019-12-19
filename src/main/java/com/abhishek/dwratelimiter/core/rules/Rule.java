@@ -17,5 +17,5 @@ public class Rule {
     private int duration;
     private int precision;
     private int limit;
-    private int weight =1;
+    private int weight;
 }

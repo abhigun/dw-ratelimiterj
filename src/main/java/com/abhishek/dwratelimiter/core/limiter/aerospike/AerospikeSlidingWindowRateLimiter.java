@@ -12,11 +12,11 @@ import java.util.Set;
 
 @Singleton
 @Slf4j
-public class AerospikeRateLimiter implements RateLimiterMethods {
+public class AerospikeSlidingWindowRateLimiter implements RateLimiterMethods {
     private final AerospikeClient aerospikeClient;
     private final Set<Rule> rules;
 
-    public AerospikeRateLimiter(AerospikeClient aerospikeClient, Set<Rule> rules){
+    public AerospikeSlidingWindowRateLimiter(AerospikeClient aerospikeClient, Set<Rule> rules){
         this.aerospikeClient = aerospikeClient;
         this.rules = rules;
         log.info("Aerospike Ratelimiter class");

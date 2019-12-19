@@ -2,7 +2,7 @@ package com.abhishek.dwratelimiter.core.storages.aerospike;
 
 import com.abhishek.dwratelimiter.core.rules.Rule;
 import com.abhishek.dwratelimiter.core.factory.StorageFactory;
-import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeRateLimiter;
+import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeSlidingWindowRateLimiter;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -23,9 +23,9 @@ public class AerospikeFactory implements StorageFactory {
     }
 
     @Override
-    public AerospikeRateLimiter getInstance(Set<Rule> rules) {
+    public AerospikeSlidingWindowRateLimiter getInstance(Set<Rule> rules) {
         log.info("Came to Aerospike getInstance Class");
-        return new AerospikeRateLimiter(aerospikeConnection.client(),rules);
+        return new AerospikeSlidingWindowRateLimiter(aerospikeConnection.client(),rules);
     }
 
     @Override
