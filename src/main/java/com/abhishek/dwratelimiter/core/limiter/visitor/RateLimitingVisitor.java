@@ -5,7 +5,7 @@ import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeSlidingWindowR
 import com.abhishek.dwratelimiter.core.limiter.redis.RedisFixedWindowRateLimiter;
 import com.abhishek.dwratelimiter.core.limiter.redis.RedisSlidingWindowRateLimiter;
 
-public interface RateLimitingVistor {
+public interface RateLimitingVisitor {
     boolean visit(AerospikeSlidingWindowRateLimiter aerospikeSlidingWindowRateLimiter);
     boolean visit(AerospikeFixedWindowRateLimiter aerospikeFixedWindowRateLimiter);
     boolean visit(RedisSlidingWindowRateLimiter redisSlidingWindowRateLimiter);

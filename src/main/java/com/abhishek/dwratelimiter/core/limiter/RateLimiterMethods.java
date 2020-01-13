@@ -1,9 +1,9 @@
 package com.abhishek.dwratelimiter.core.limiter;
 
-import com.abhishek.dwratelimiter.core.limiter.visitor.RateLimitingVistor;
+import com.abhishek.dwratelimiter.core.limiter.visitor.RateLimitingVisitor;
 
 public interface RateLimiterMethods {
-    boolean isOverLimit(String key, int weight, RateLimitingVistor vistor);
+    boolean isOverLimit(String key, int weight, RateLimitingVisitor vistor);
 
 
 

@@ -4,9 +4,9 @@ import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeFixedWindowRat
 import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeSlidingWindowRateLimiter;
 import com.abhishek.dwratelimiter.core.limiter.redis.RedisFixedWindowRateLimiter;
 import com.abhishek.dwratelimiter.core.limiter.redis.RedisSlidingWindowRateLimiter;
-import com.abhishek.dwratelimiter.core.limiter.visitor.RateLimitingVistor;
+import com.abhishek.dwratelimiter.core.limiter.visitor.RateLimitingVisitor;
 
-public class RateLimitingVisitorImpl implements RateLimitingVistor {
+public class RateLimitingVisitorImpl implements RateLimitingVisitor {
     @Override
     public boolean visit(AerospikeSlidingWindowRateLimiter aerospikeSlidingWindowRateLimiter) {
         return false;
