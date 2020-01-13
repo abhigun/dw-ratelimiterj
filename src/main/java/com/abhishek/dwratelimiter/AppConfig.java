@@ -1,6 +1,6 @@
 package com.abhishek.dwratelimiter;
 
-import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;
+
 import com.abhishek.dwratelimiter.core.config.storage.StorageConfig;
 import com.abhishek.dwratelimiter.utils.StorageType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
