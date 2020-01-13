@@ -4,12 +4,14 @@ import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.limiter.visitor.RateLimitingVisitor;
 import com.abhishek.dwratelimiter.core.rules.Rule;
 import com.aerospike.client.AerospikeClient;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Set;
 
 
 @Slf4j
+@Getter
 public class AerospikeSlidingWindowRateLimiter implements RateLimiterMethods {
     private final AerospikeClient aerospikeClient;
     private final Set<Rule> rules;

@@ -4,9 +4,11 @@ import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.limiter.visitor.RateLimitingVisitor;
 import com.abhishek.dwratelimiter.core.rules.Rule;
 import com.aerospike.client.AerospikeClient;
+import lombok.Getter;
 
 import java.util.Set;
 
+@Getter
 public class AerospikeFixedWindowRateLimiter implements RateLimiterMethods {
     private final AerospikeClient aerospikeClient;
     private final Set<Rule> rules;
