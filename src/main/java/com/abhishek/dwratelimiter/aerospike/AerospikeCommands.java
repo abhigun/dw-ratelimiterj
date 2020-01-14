@@ -11,6 +11,12 @@ import com.aerospike.client.policy.WritePolicy;
 import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Stream;
+
 /**
  * @author gunda.abhishek
  * @created 14/01/2020
@@ -64,6 +70,10 @@ public class AerospikeCommands {
     private Record get(Key k){
         return getClient().get(getClient().readPolicyDefault,k);
     }
+
+    private Boolean delete(Key k){
+        return getClient().delete(getPolicy().writePolicyDefault,k);
+    }
     public void saveRecord(String key, int expiry, Bin... bins){
         try {
             Key k = getKey(key);
@@ -97,12 +107,15 @@ public class AerospikeCommands {
         return get(getKey(key)).getString(bin.name);
     }
 
-    public void deleteRecord(){
-
+    public Boolean deleteRecord(String key){
+        return delete(getKey(key));
     }
 
-    public void deleteBin(){
-
+    public void deleteBins(String key, Set<String> binNames){
+        List<Bin> bins = new ArrayList<>();
+        binNames.stream().forEach(binName->{
+            bins.add(new Bi)
+        });
     }
 
     public void changeExpiry(){
