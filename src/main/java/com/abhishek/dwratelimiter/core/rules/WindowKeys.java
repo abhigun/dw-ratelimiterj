@@ -2,15 +2,15 @@ package com.abhishek.dwratelimiter.core.rules;
 
 public class WindowKeys {
     private long buckets;
-    private long bucketid;
+    private long bucket_id;
     private long bucket_start;
     private String counter;
     private String currentTS;
 
     public WindowKeys(long time, int duration , int precision){
         this.buckets = (long) Math.ceil(duration/(double)precision);
-        this.bucketid = (long) (time/precision);
-        this.bucket_start = bucketid - buckets +1;
+        this.bucket_id = (long) (time/precision);
+        this.bucket_start = bucket_id - buckets +1;
         this.counter = "" + duration + ":" + precision +":";
         this.currentTS = counter + "ts";
     }

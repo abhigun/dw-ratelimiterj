@@ -6,7 +6,7 @@ public enum LimiterType {
     SLIDING {
         @Override
         public <T> T getRule( LimiterTypeVisitor<T> visitor ) {
-            return visitor.convertToSlidingWindowRule();
+            return null;
         }
         @Override
         public <T> T getRateLimiter(LimiterTypeVisitor<T> visitor){
@@ -17,7 +17,7 @@ public enum LimiterType {
     FIXED {
         @Override
         public <T> T getRule( LimiterTypeVisitor<T> visitor ) {
-            return visitor.convertToFixedWindowRule();
+            return null;
         }
         @Override
         public <T> T getRateLimiter(LimiterTypeVisitor<T> visitor){

@@ -16,15 +16,6 @@ public class AerospikeVisitorImpl implements LimiterTypeVisitor<RateLimiterMetho
         this.aerospikeConnection = aerospikeConnection;
         this.rules = rules;
     }
-    @Override
-    public RateLimiterMethods convertToSlidingWindowRule() {
-        return null;
-    }
-
-    @Override
-    public RateLimiterMethods convertToFixedWindowRule() {
-        return null;
-    }
 
     @Override
     public RateLimiterMethods getSlidingWindowLimiter() {
