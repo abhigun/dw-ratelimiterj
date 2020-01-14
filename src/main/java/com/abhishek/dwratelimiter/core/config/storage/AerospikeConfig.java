@@ -21,6 +21,8 @@ public class AerospikeConfig extends StorageConfig {
 
     private String namespace;
 
+    private String setName;
+
     private String username;
 
     private String password;
