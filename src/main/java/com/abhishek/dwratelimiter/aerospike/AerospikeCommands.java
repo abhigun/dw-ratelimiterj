@@ -114,7 +114,7 @@ public class AerospikeCommands {
     public void deleteBins(String key, Set<String> binNames){
         List<Bin> bins = new ArrayList<>();
         binNames.stream().forEach(binName->{
-            bins.add(new Bi)
+            bins.add(Bin.asNull(binName));
         });
     }
 
