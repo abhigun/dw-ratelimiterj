@@ -14,6 +14,7 @@ public class AerospikeConnection implements Managed {
 
     private final AerospikeConfig aerospikeConfig;
     private static AerospikeClient aerospikeClient;
+    private static ClientPolicy clientPolicy;
 
     @Inject
     public AerospikeConnection(AppConfig appConfig){
@@ -45,7 +46,7 @@ public class AerospikeConnection implements Managed {
         writePolicy.sendKey = true;
 
 
-        ClientPolicy clientPolicy = new ClientPolicy();
+        clientPolicy = new ClientPolicy();
         clientPolicy.maxConnsPerNode = aerospikeConfig.getMaxConnectionsPerNode();
         clientPolicy.readPolicyDefault = readPolicy;
         clientPolicy.writePolicyDefault = writePolicy;
@@ -78,5 +79,9 @@ public class AerospikeConnection implements Managed {
 
     public AerospikeClient client(){
         return aerospikeClient;
+    }
+
+    public ClientPolicy policy(){
+        return clientPolicy;
     }
 }
