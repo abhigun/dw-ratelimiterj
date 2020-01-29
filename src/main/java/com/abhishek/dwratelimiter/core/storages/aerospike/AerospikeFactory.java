@@ -30,14 +30,14 @@ public class AerospikeFactory implements StorageFactory {
     @Override
     public RateLimiterMethods getInstance(Set<Rule> rules, LimiterType limiterType) {
         log.info("Came to Aerospike getInstance Class");
-        return limiterType.getRateLimiter(new LimiterTypeVisitor<RateLimiterMethods>() {
+        return limiterType.visit(new LimiterTypeVisitor<RateLimiterMethods>() {
             @Override
-            public RateLimiterMethods getSlidingWindowLimiter() {
+            public RateLimiterMethods visitSliding() {
                 return new AerospikeSlidingWindowRateLimiter(aerospikeConnection.client(),rules);
             }
 
             @Override
-            public RateLimiterMethods getFixedWindowLimiter() {
+            public RateLimiterMethods visitFixed() {
                 return new AerospikeFixedWindowRateLimiter(aerospikeConnection.client(),rules);
             }
         });

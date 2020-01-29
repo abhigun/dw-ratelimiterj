@@ -27,7 +27,7 @@ public class Sample {
     }
 
     @GET
-    @Throttled(param = "namespace",throttleRule = {@ThrottleRule(duration = 10,precision = 10,limit = 3),@ThrottleRule(duration = 5,precision = 5,limit = 2)}, type = LimiterType.SLIDING)
+    @Throttled(param = "namespace",throttleRule = {@ThrottleRule(duration = 10,precision = 10,limit = 3, type = LimiterType.FIXED),@ThrottleRule(duration = 5,precision = 5,limit = 2)})
     public String getFactory(@NotNull @QueryParam("namespace") final String namespace){
         StorageFactory storageFactory = storageFactoryManager.getFactoryInstance(StorageType.AEROSPIKE);
 //       abstractBaseFactory =  (AerospikeFactory)factoryManager.getFactoryInstance(StorageType.AEROSPIKE);

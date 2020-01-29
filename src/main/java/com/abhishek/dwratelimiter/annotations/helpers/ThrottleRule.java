@@ -1,5 +1,7 @@
 package com.abhishek.dwratelimiter.annotations.helpers;
 
+import com.abhishek.dwratelimiter.core.visitor.LimiterType;
+
 import javax.ws.rs.NameBinding;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,4 +16,5 @@ public @interface ThrottleRule {
     int precision();
     int limit();
     int weight() default 1;
+    LimiterType type() default LimiterType.SLIDING;
 }
