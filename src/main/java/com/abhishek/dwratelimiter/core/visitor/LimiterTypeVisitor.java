@@ -1,8 +1,7 @@
 package com.abhishek.dwratelimiter.core.visitor;
 
-import com.abhishek.dwratelimiter.core.rules.Rule;
+import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
 
-import java.util.Set;
 
 public interface LimiterTypeVisitor<T> {
     T getSlidingWindowLimiter();

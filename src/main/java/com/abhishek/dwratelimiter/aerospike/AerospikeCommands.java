@@ -86,6 +86,11 @@ public class AerospikeCommands {
 
     }
 
+    /**
+     * @param key
+     * @param expiry
+     * @param bins
+     */
     public void createOnly(String key, int expiry, Bin... bins){
         try {
             Key k = getKey(key);
