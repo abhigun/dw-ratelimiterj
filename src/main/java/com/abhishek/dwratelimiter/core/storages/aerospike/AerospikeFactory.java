@@ -1,5 +1,6 @@
 package com.abhishek.dwratelimiter.core.storages.aerospike;
 
+import com.abhishek.dwratelimiter.aerospike.AerospikeCommands;
 import com.abhishek.dwratelimiter.aerospike.AerospikeConnection;
 import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeFixedWindowRateLimiter;
@@ -19,10 +20,10 @@ import java.util.Set;
 @Slf4j
 public class AerospikeFactory implements StorageFactory {
 
-    private final AerospikeConnection aerospikeConnection;
+    private final AerospikeCommands aerospikeCommands;
     @Inject
-    public AerospikeFactory(AerospikeConnection aerospikeConnection){
-        this.aerospikeConnection = aerospikeConnection;
+    public AerospikeFactory(AerospikeCommands aerospikeCommands){
+        this.aerospikeCommands = aerospikeCommands;
         log.info("Reached the Aerospike Class");
 
     }
@@ -33,12 +34,12 @@ public class AerospikeFactory implements StorageFactory {
         return limiterType.visit(new LimiterTypeVisitor<RateLimiterMethods>() {
             @Override
             public RateLimiterMethods visitSliding() {
-                return new AerospikeSlidingWindowRateLimiter(aerospikeConnection.client(),rules);
+                return new AerospikeSlidingWindowRateLimiter(aerospikeCommands,rules);
             }
 
             @Override
             public RateLimiterMethods visitFixed() {
-                return new AerospikeFixedWindowRateLimiter(aerospikeConnection.client(),rules);
+                return new AerospikeFixedWindowRateLimiter(aerospikeCommands,rules);
             }
         });
     }

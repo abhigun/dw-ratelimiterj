@@ -1,5 +1,6 @@
 package com.abhishek.dwratelimiter.core.limiter.aerospike;
 
+import com.abhishek.dwratelimiter.aerospike.AerospikeCommands;
 import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.limiter.visitor.RateLimitingVisitor;
 import com.abhishek.dwratelimiter.core.rules.Rule;
@@ -13,11 +14,11 @@ import java.util.Set;
 @Slf4j
 @Getter
 public class AerospikeSlidingWindowRateLimiter implements RateLimiterMethods {
-    private final AerospikeClient aerospikeClient;
+    private final AerospikeCommands aerospikeCommands;
     private final Set<Rule> rules;
 
-    public AerospikeSlidingWindowRateLimiter(AerospikeClient aerospikeClient, Set<Rule> rules){
-        this.aerospikeClient = aerospikeClient;
+    public AerospikeSlidingWindowRateLimiter(AerospikeCommands aerospikeCommands, Set<Rule> rules){
+        this.aerospikeCommands = aerospikeCommands;
         this.rules = rules;
         log.info("Aerospike Ratelimiter class");
     }
@@ -25,7 +26,7 @@ public class AerospikeSlidingWindowRateLimiter implements RateLimiterMethods {
     public boolean isOverLimit(String key, int weight, RateLimitingVisitor vistor) {
         log.info("Aerospike Instance of the class");
         log.info(rules.toString());
-        log.info(String.valueOf(aerospikeClient.isConnected()));
+        log.info(String.valueOf(aerospikeCommands));
         vistor.visit(this);
         return false;
     }
