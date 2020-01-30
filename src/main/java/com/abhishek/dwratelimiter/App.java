@@ -23,6 +23,7 @@ public class App extends Application<AppConfig>
     @Override
     public void initialize(Bootstrap<AppConfig> bootstrap){
         super.initialize(bootstrap);
+        System.setProperty("time","1578915202584");
         bootstrap.addBundle(GuiceBundle.<AppConfig>builder()
                 .enableAutoConfig(getClass().getPackage().getName())
                 .modules(
@@ -36,7 +37,7 @@ public class App extends Application<AppConfig>
     @Override
     public void run(AppConfig appConfig, Environment environment) throws Exception {
         log.info(String.valueOf(appConfig));
-        System.setProperty("time","1578915202584");
+
         environment.getObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         environment.getObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
         environment.getObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);

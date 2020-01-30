@@ -1,6 +1,6 @@
 package com.abhishek.dwratelimiter.core.factory;
 
-import com.abhishek.dwratelimiter.utils.StorageType;
+import com.abhishek.dwratelimiter.core.config.StorageType;
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

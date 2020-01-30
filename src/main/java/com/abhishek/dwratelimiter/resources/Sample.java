@@ -6,7 +6,7 @@ import com.abhishek.dwratelimiter.annotations.ThrottleRule;
 import com.abhishek.dwratelimiter.core.factory.StorageFactory;
 import com.abhishek.dwratelimiter.core.factory.StorageFactoryManager;
 import com.abhishek.dwratelimiter.core.limiter.LimiterType;
-import com.abhishek.dwratelimiter.utils.StorageType;
+import com.abhishek.dwratelimiter.core.config.StorageType;
 import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 

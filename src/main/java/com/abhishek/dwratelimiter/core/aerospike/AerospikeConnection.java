@@ -3,7 +3,7 @@ package com.abhishek.dwratelimiter.core.aerospike;
 import com.abhishek.dwratelimiter.AppConfig;
 import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;
 import com.abhishek.dwratelimiter.core.config.storage.AerospikeConfig;
-import com.abhishek.dwratelimiter.utils.StorageType;
+import com.abhishek.dwratelimiter.core.config.StorageType;
 import com.aerospike.client.AerospikeClient;
 import com.aerospike.client.Host;
 import com.aerospike.client.policy.*;

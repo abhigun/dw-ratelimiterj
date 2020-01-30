@@ -2,7 +2,7 @@ package com.abhishek.dwratelimiter;
 
 
 import com.abhishek.dwratelimiter.core.config.storage.StorageConfig;
-import com.abhishek.dwratelimiter.utils.StorageType;
+import com.abhishek.dwratelimiter.core.config.StorageType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.dropwizard.Configuration;
 import lombok.*;

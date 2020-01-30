@@ -9,6 +9,7 @@ import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;
 import com.abhishek.dwratelimiter.core.factory.StorageFactoryManager;
 import com.abhishek.dwratelimiter.core.limiter.LimiterType;
 import com.abhishek.dwratelimiter.core.limiter.LimiterTypeVisitor;
+import com.abhishek.dwratelimiter.utils.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.glassfish.jersey.server.model.AnnotatedMethod;
 
@@ -53,26 +54,27 @@ public class ThrottleFilter implements ContainerRequestFilter {
         Set<Rule> fixedRules = new HashSet<>();
         Set<Rule> slidingWindowRules = new HashSet<>();
 
-        Arrays.stream(throttled.throttleRule()).forEach(throttleRule -> {
-            LimiterType type = throttleRule.type();
-            type.visit(new LimiterTypeVisitor<Void>() {
-                @Override
-                public Void visitSliding() {
-                    slidingWindowRules.add(buildRule(throttleRule));
-                    return null;
-                }
+        Arrays.stream(throttled.throttleRule()).forEach(throttleRule -> throttleRule.type().visit(new LimiterTypeVisitor<Void>() {
+            @Override
+            public Void visitSliding() {
+                slidingWindowRules.add(buildRule(throttleRule));
+                return null;
+            }
 
-                @Override
-                public Void visitFixed() {
-                    if(throttleRule.duration() != throttleRule.precision())
-                        throw new UnsupportedOperationException("duration and precision have to be the same for fixed window limiting");
-                    fixedRules.add(buildRule(throttleRule));
-                    return null;
-                }
-            });
-        });
+            @Override
+            public Void visitFixed() {
+                if(throttleRule.duration() != throttleRule.precision())
+                    throw new UnsupportedOperationException("duration and precision have to be the same for fixed window limiting");
+                fixedRules.add(buildRule(throttleRule));
+                return null;
+            }
+        }));
 
-        String key = resource.getResourceMethod().getName() + "_"+containerRequestContext.getUriInfo().getQueryParameters().get(throttled.param()).get(0);
+        String key = resource.getResourceMethod().getName();
+        if(!Constants.DEFAULT_PARAM.equalsIgnoreCase(throttled.param())){
+            key = "_" + throttled.paramtype().filterParam(containerRequestContext,throttled.param());
+        }
+
         storageFactory.getInstance(fixedRules,LimiterType.FIXED).isOverLimit(key,1,new RateLimitingVisitorImpl());
         storageFactory.getInstance(slidingWindowRules,LimiterType.SLIDING).isOverLimit(key,1,new RateLimitingVisitorImpl());
         log.info(resource.toString());

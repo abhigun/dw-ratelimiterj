@@ -1,7 +1,7 @@
 package com.abhishek.dwratelimiter.core.config.storage;
 
 import com.abhishek.dwratelimiter.utils.HostandPort;
-import com.abhishek.dwratelimiter.utils.StorageType;
+import com.abhishek.dwratelimiter.core.config.StorageType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 

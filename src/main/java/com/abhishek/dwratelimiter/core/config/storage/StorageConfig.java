@@ -1,17 +1,12 @@
 package com.abhishek.dwratelimiter.core.config.storage;
 
-import com.abhishek.dwratelimiter.utils.HostandPort;
-import com.abhishek.dwratelimiter.utils.StorageType;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.abhishek.dwratelimiter.core.config.StorageType;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
