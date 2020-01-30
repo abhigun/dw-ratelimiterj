@@ -1,4 +1,4 @@
-package com.abhishek.dwratelimiter.core.visitor;
+package com.abhishek.dwratelimiter.core.limiter;
 
 public enum LimiterType {
 

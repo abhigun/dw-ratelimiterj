@@ -1,4 +1,4 @@
-package com.abhishek.dwratelimiter.aerospike;
+package com.abhishek.dwratelimiter.core.aerospike;
 
 import com.abhishek.dwratelimiter.AppConfig;
 import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;

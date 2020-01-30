@@ -1,14 +1,14 @@
 package com.abhishek.dwratelimiter.annotations.filter;
 
 import com.abhishek.dwratelimiter.annotations.Throttled;
-import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
+import com.abhishek.dwratelimiter.annotations.ThrottleRule;
 import com.abhishek.dwratelimiter.core.factory.StorageFactory;
 import com.abhishek.dwratelimiter.core.limiter.visitor.impl.RateLimitingVisitorImpl;
-import com.abhishek.dwratelimiter.core.rules.Rule;
+import com.abhishek.dwratelimiter.core.config.rules.Rule;
 import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;
 import com.abhishek.dwratelimiter.core.factory.StorageFactoryManager;
-import com.abhishek.dwratelimiter.core.visitor.LimiterType;
-import com.abhishek.dwratelimiter.core.visitor.LimiterTypeVisitor;
+import com.abhishek.dwratelimiter.core.limiter.LimiterType;
+import com.abhishek.dwratelimiter.core.limiter.LimiterTypeVisitor;
 import lombok.extern.slf4j.Slf4j;
 import org.glassfish.jersey.server.model.AnnotatedMethod;
 

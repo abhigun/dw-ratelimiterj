@@ -1,13 +1,13 @@
 package com.abhishek.dwratelimiter.core.storages.aerospike;
 
-import com.abhishek.dwratelimiter.aerospike.AerospikeCommands;
+import com.abhishek.dwratelimiter.core.aerospike.AerospikeCommands;
 import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeFixedWindowRateLimiter;
 import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeSlidingWindowRateLimiter;
-import com.abhishek.dwratelimiter.core.rules.Rule;
+import com.abhishek.dwratelimiter.core.config.rules.Rule;
 import com.abhishek.dwratelimiter.core.factory.StorageFactory;
-import com.abhishek.dwratelimiter.core.visitor.LimiterType;
-import com.abhishek.dwratelimiter.core.visitor.LimiterTypeVisitor;
+import com.abhishek.dwratelimiter.core.limiter.LimiterType;
+import com.abhishek.dwratelimiter.core.limiter.LimiterTypeVisitor;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;

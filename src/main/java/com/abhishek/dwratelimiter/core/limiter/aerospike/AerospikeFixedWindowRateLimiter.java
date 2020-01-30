@@ -1,9 +1,9 @@
 package com.abhishek.dwratelimiter.core.limiter.aerospike;
 
-import com.abhishek.dwratelimiter.aerospike.AerospikeCommands;
+import com.abhishek.dwratelimiter.core.aerospike.AerospikeCommands;
 import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.limiter.visitor.RateLimitingVisitor;
-import com.abhishek.dwratelimiter.core.rules.Rule;
+import com.abhishek.dwratelimiter.core.config.rules.Rule;
 import lombok.Getter;
 
 import java.util.Set;

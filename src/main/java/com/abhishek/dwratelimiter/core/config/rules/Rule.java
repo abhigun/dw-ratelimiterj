@@ -1,4 +1,4 @@
-package com.abhishek.dwratelimiter.core.rules;
+package com.abhishek.dwratelimiter.core.config.rules;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

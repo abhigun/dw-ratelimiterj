@@ -1,7 +1,5 @@
 package com.abhishek.dwratelimiter.annotations;
 
-import com.abhishek.dwratelimiter.annotations.helpers.ThrottleRule;
-
 import javax.ws.rs.NameBinding;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -22,4 +20,5 @@ import java.lang.annotation.Target;
 public @interface Throttled {
     String param();
     ThrottleRule[] throttleRule();
+
 }
