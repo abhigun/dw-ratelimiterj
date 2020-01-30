@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.luaj.vm2.ast.Str;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

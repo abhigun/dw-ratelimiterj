@@ -1,7 +1,6 @@
 package com.abhishek.dwratelimiter.core.storages.aerospike;
 
 import com.abhishek.dwratelimiter.aerospike.AerospikeCommands;
-import com.abhishek.dwratelimiter.aerospike.AerospikeConnection;
 import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeFixedWindowRateLimiter;
 import com.abhishek.dwratelimiter.core.limiter.aerospike.AerospikeSlidingWindowRateLimiter;

@@ -7,7 +7,6 @@ import com.abhishek.dwratelimiter.core.limiter.visitor.impl.RateLimitingVisitorI
 import com.abhishek.dwratelimiter.core.rules.Rule;
 import com.abhishek.dwratelimiter.core.config.RatelimiterConfig;
 import com.abhishek.dwratelimiter.core.factory.StorageFactoryManager;
-import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;
 import com.abhishek.dwratelimiter.core.visitor.LimiterType;
 import com.abhishek.dwratelimiter.core.visitor.LimiterTypeVisitor;
 import lombok.extern.slf4j.Slf4j;
