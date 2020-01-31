@@ -1,4 +1,4 @@
-package com.abhishek.dwratelimiter.core.storages.aerospike;
+package com.abhishek.dwratelimiter.core.factory.aerospike;
 
 import com.abhishek.dwratelimiter.core.aerospike.AerospikeCommands;
 import com.abhishek.dwratelimiter.core.limiter.RateLimiterMethods;

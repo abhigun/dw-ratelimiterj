@@ -22,11 +22,11 @@ public class AerospikeSlidingWindowRateLimiter implements RateLimiterMethods {
         log.info("Aerospike Ratelimiter class");
     }
     @Override
-    public boolean isOverLimit(String key, int weight, RateLimitingVisitor vistor) {
+    public boolean isOverLimit(String key, RateLimitingVisitor vistor) {
         log.info("Aerospike Instance of the class");
         log.info(rules.toString());
         log.info(String.valueOf(aerospikeCommands));
-        vistor.visit(this);
+        vistor.visit(this,key);
         return false;
     }
 }

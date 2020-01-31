@@ -12,7 +12,7 @@ public class RedisSlidingWindowRateLimiter implements RateLimiterMethods {
         log.info("Redis Rate Limiter Class");
     }
     @Override
-    public boolean isOverLimit(String key, int weight, RateLimitingVisitor vistor) {
+    public boolean isOverLimit(String key, RateLimitingVisitor vistor) {
         log.info("Redis Method Rate Limiter");
         return false;
     }

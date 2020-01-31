@@ -18,7 +18,7 @@ public class AerospikeFixedWindowRateLimiter implements RateLimiterMethods {
         this.rules = rules;
     }
     @Override
-    public boolean isOverLimit(String key, int weight, RateLimitingVisitor vistor) {
-        return vistor.visit(this);
+    public boolean isOverLimit(String key, RateLimitingVisitor vistor) {
+        return vistor.visit(this,key);
     }
 }

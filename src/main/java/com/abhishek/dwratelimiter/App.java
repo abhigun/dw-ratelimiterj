@@ -1,6 +1,7 @@
 package com.abhishek.dwratelimiter;
 
 
+import com.abhishek.dwratelimiter.utils.RateLimiterUtils;
 import com.abhishek.dwratelimiter.utils.SerDe;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -23,7 +24,6 @@ public class App extends Application<AppConfig>
     @Override
     public void initialize(Bootstrap<AppConfig> bootstrap){
         super.initialize(bootstrap);
-        System.setProperty("time","1578915202584");
         bootstrap.addBundle(GuiceBundle.<AppConfig>builder()
                 .enableAutoConfig(getClass().getPackage().getName())
                 .modules(
@@ -45,7 +45,7 @@ public class App extends Application<AppConfig>
         environment.getObjectMapper().configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
         environment.getObjectMapper().configure(DeserializationFeature.READ_ENUMS_USING_TO_STRING, true);
 
-
+        RateLimiterUtils.initialize(appConfig);
         SerDe.init(environment.getObjectMapper());
 
     }

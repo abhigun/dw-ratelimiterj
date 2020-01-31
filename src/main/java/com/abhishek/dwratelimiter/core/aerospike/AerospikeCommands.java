@@ -125,6 +125,10 @@ public class AerospikeCommands {
 
     }
 
+    public boolean isConnected(){
+        return aerospikeConnection.client().isConnected();
+    }
+
 
 
 }

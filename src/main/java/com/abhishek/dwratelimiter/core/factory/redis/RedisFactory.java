@@ -1,4 +1,4 @@
-package com.abhishek.dwratelimiter.core.storages.redis;
+package com.abhishek.dwratelimiter.core.factory.redis;
 
 import com.abhishek.dwratelimiter.core.config.rules.Rule;
 import com.abhishek.dwratelimiter.core.factory.StorageFactory;

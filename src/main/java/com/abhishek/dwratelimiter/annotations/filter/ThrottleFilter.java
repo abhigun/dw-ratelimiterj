@@ -75,9 +75,8 @@ public class ThrottleFilter implements ContainerRequestFilter {
             key = "_" + throttled.paramtype().filterParam(containerRequestContext,throttled.param());
         }
 
-        storageFactory.getInstance(fixedRules,LimiterType.FIXED).isOverLimit(key,1,new RateLimitingVisitorImpl());
-        storageFactory.getInstance(slidingWindowRules,LimiterType.SLIDING).isOverLimit(key,1,new RateLimitingVisitorImpl());
-        log.info(resource.toString());
+        storageFactory.getInstance(fixedRules,LimiterType.FIXED).isOverLimit(key,new RateLimitingVisitorImpl());
+        storageFactory.getInstance(slidingWindowRules,LimiterType.SLIDING).isOverLimit(key,new RateLimitingVisitorImpl());
     }
 
     private Rule buildRule(ThrottleRule throttleRule){

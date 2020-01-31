@@ -12,7 +12,7 @@ public class RedisFixedWindowRateLimiter implements RateLimiterMethods {
         log.info("Redis Fixed Window rate Limiter");
     }
     @Override
-    public boolean isOverLimit(String key, int weight, RateLimitingVisitor vistor) {
+    public boolean isOverLimit(String key, RateLimitingVisitor vistor) {
         return false;
     }
 }
