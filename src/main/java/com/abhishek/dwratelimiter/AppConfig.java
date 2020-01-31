@@ -6,6 +6,7 @@ import com.abhishek.dwratelimiter.core.config.StorageType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.dropwizard.Configuration;
 import lombok.*;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -26,5 +27,9 @@ public class AppConfig extends Configuration {
 
     @NotNull
     private StorageType storageEnv;
+
+    @NotEmpty
+    @NotNull
+    private String appTimeReference;
 
 }
