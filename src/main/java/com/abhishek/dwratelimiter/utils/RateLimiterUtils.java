@@ -19,4 +19,8 @@ public class RateLimiterUtils {
         Preconditions.checkNotNull(INIT_TIME,"Please Call RatelimiterUtils.initialize() to set the referal time");
         return Math.subtractExact((System.currentTimeMillis()/1000),INIT_TIME);
     }
+
+    public static boolean isNull(Object o){
+        return (o==null);
+    }
 }
